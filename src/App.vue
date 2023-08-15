@@ -1,6 +1,7 @@
 <template>
   <h2>Welcome {{ first_name + " " + last_name }}!</h2>
   <button v-on:click="changeName">Change Name</button>
+  <h3>My Github : <a v-bind:href="url"> Go to Link</a></h3>
   <!-- v-on could be written as @click  -->
 </template>
 
@@ -11,7 +12,8 @@ export default {
   data(){
     return{
       first_name: "Quenie",
-      last_name: "Salbiyah"
+      last_name: "Salbiyah",
+      url: "https://github.com/Queniex"
     };
   },
   methods:{
