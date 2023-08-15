@@ -42,6 +42,34 @@
 
   <hr>
 
+  <div class="container-3">
+    <div class="container-2-item">
+      <h3>Loop Using "Hook LifeCycle" : </h3>
+      <div v-if="items.length">
+        <ul v-for="item in items" :key="item.id">
+        {{ item.id }} → {{ item.title }}
+        </ul>
+      </div>
+      <div v-else>
+        <h1>No Data Found</h1>
+      </div> 
+    </div>
+
+    <div class="container-2-item">
+      <h3>Search using Computed Properties : </h3>
+      <input type="text" v-model="search" placeholder="Enter Keyword..">
+    </div>
+
+    <div class="container-2-item">
+      <h3>List of Items : </h3>
+      <ul v-for="item in searchData" :key="item.id">
+        {{ item.id }} || {{ item.title }}
+      </ul>
+    </div>
+
+  </div> 
+
+  <hr>
 
 </template>
 
@@ -54,6 +82,7 @@ export default {
       last_name: "Salbiyah",
       url: "https://github.com/Queniex",
       name: "",
+      search: "",
       products: [
         {id: 1, title: "A"},
         {id: 2, title: "B"},
@@ -61,8 +90,7 @@ export default {
         {id: 4, title: "D"},
         {id: 5, title: "E"}
       ],
-      clothes: [
-      ],
+      clothes: [],
       items : []
     };
   },
@@ -83,6 +111,13 @@ export default {
       {id: 4, title: "DDDD"},
       {id: 5, title: "EEEE"}
     ]
+  },
+  computed: {
+    searchData(){
+      return this.items.filter((item) => {
+        return item.id.toString().match(this.search);
+      });
+    }
   },
   methods:{
     changeName(){
