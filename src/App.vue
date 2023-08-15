@@ -26,11 +26,22 @@
         <h1>No Data Found</h1>
       </div> 
     </div>
-  </div>
 
-  <div class="day-3">
-    <hr>
-  </div>
+    <div class="container-2-item">
+      <h3>Loop Condition : </h3>
+      <div v-if="clothes.length">
+        <ul v-for="item in clothes" :key="item.id">
+        {{ item.id }} || {{ item.title }}
+        </ul>
+      </div>
+      <div v-else>
+        <h1>No Data Found</h1>
+      </div> 
+    </div>
+  </div> 
+
+  <hr>
+
 
 </template>
 
@@ -49,8 +60,29 @@ export default {
         {id: 3, title: "C"},
         {id: 4, title: "D"},
         {id: 5, title: "E"}
-      ]
+      ],
+      clothes: [
+      ],
+      items : []
     };
+  },
+  beforeMount(){
+    console.log("Before Mount");
+  },
+  mounted(){
+    console.log("Mounted");
+  },
+  beforeCreate(){
+    console.log("Before Create");
+  },
+  created(){
+    this.items = [
+      {id: 1, title: "AAAA"},
+      {id: 2, title: "BBBB"},
+      {id: 3, title: "CCCC"},
+      {id: 4, title: "DDDD"},
+      {id: 5, title: "EEEE"}
+    ]
   },
   methods:{
     changeName(){
@@ -69,12 +101,20 @@ export default {
 .container-2{
   /* border: 1px red solid; */
   display: grid;
-  grid-template-columns: auto auto;
+  grid-template-columns: auto auto auto;
+}
+
+.container-3{
+  /* border: 1px red solid; */
+  display: grid;
+  grid-template-columns: auto auto auto;
 }
 
 .container-2-item{
-  margin-left: 2rem;
-  margin-right: 2rem;
+  height: 15rem;
+  width: 22rem;
+  margin-left: 3rem;
+  margin-right: 3rem;
   /* border: 1px red solid; */
   text-align: center;
 }
