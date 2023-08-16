@@ -1,5 +1,5 @@
 <template>
-    <Header />
+    <Header :text="text"/>
 </template>
   
 <script>
@@ -9,7 +9,12 @@
         name: 'App',
             components:{
                 Header
+            },
+        data(){
+            return{
+                text:"Text from data"
             }
+        }
     }
 </script>
   
