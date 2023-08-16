@@ -71,12 +71,6 @@
 
   <hr>
 
-  <div class="container-4">
-    <h2>Welcome {{ first_name + " " + last_name }}!</h2>
-    <button v-on:click="changeName">Change Name</button>
-      <!-- The v-on directive can also be represented as @click -->
-  </div>
-
 </template>
 
 <script>
