@@ -1,5 +1,5 @@
 <template>
-    <Header :text="text"/>
+    <Header @changeTitle="changeText" :text="text"/>
 </template>
   
 <script>
@@ -12,7 +12,12 @@
             },
         data(){
             return{
-                text:"Text from data"
+                text:"Text from App.vue"
+            }
+        },
+        methods:{
+            changeText(newText){
+                this.text = newText;
             }
         }
     }
